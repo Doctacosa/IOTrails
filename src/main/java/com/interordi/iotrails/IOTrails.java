@@ -2,26 +2,18 @@ package com.interordi.iotrails;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
-import java.io.DataOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Properties;
 
 import com.interordi.iotrails.listeners.LoginListener;
 import com.interordi.iotrails.utilities.Commands;
+import com.interordi.iotrails.utilities.Database;
 import com.interordi.iotrails.utilities.CommandTargets;
 
 
 public class IOTrails extends JavaPlugin {
 
 	LoginListener thisLoginListener;
-
-	private boolean bungeeInit = false;
+	Database db = null;
 
 
 	public void onEnable() {
@@ -30,8 +22,13 @@ public class IOTrails extends JavaPlugin {
 		this.saveDefaultConfig();
 
 		//Get the MySQL database information
-		String host = this.getConfig().getString("mysql.host", "");
+		String host = this.getConfig().getString("mysql.host", "localhost");
+		int port = this.getConfig().getInt("mysql.port", 3306);
+		String user = this.getConfig().getString("mysql.user", "root");
+		String pass = this.getConfig().getString("mysql.pass", "");
+		String database = this.getConfig().getString("mysql.database", "minecraft");
 
+		db = new Database(host, port, user, pass, database);
 		thisLoginListener = new LoginListener(this);
 
 		getLogger().info("IOTrails enabled");
