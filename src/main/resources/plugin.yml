@@ -1,0 +1,9 @@
+name: IOTrails
+main: com.interordi.iotrails.IOTrails
+version: 1.0
+api-version: 1.13
+
+commands:
+  trail:
+    description: View or use a trail
+    usage: /trail
