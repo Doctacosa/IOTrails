@@ -2,7 +2,10 @@ package com.interordi.iotrails;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import net.md_5.bungee.api.ChatColor;
 
 import com.interordi.iotrails.listeners.LoginListener;
 import com.interordi.iotrails.utilities.Commands;
@@ -30,6 +33,7 @@ public class IOTrails extends JavaPlugin {
 
 		db = new Database(host, port, user, pass, database);
 		thisLoginListener = new LoginListener(this);
+		Trails.init(db);
 
 		getLogger().info("IOTrails enabled");
 	}
@@ -68,11 +72,23 @@ public class IOTrails extends JavaPlugin {
 		if (cmd.getName().equalsIgnoreCase("switch")) {
 
 			if (!sender.hasPermission("iotrails.enable")) {
-				sender.sendMessage("§cYou are not allowed to use this command.");
+				sender.sendMessage(ChatColor.RED + "You are not allowed to use this command.");
 				return true;
 			}
 
-			//TODO: Do something
+			//Only players can run the rest of the commands
+			if (!(sender instanceof Player)) {
+				sender.sendMessage(ChatColor.RED + "This command can only be run by a player.");
+				return true;
+			}
+			
+			Player player = (Player)sender;
+
+			String option = null;
+			if (args.length > 0)
+				option = args[0];
+			
+			Trails.select(player, option);
 
 			return true;
 		}
