@@ -15,7 +15,6 @@ import com.interordi.iotrails.utilities.CommandTargets;
 
 public class IOTrails extends JavaPlugin {
 
-	public Players players;
 	public Database db = null;
 
 	@SuppressWarnings("unused")
@@ -37,7 +36,7 @@ public class IOTrails extends JavaPlugin {
 		db = new Database(host, port, user, pass, database);
 		thisPlayerListener = new PlayerListener(this);
 		Trails.init(db);
-		players = new Players(this);
+		Players.init(this);
 
 		getLogger().info("IOTrails enabled");
 	}

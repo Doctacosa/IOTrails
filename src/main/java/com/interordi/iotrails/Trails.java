@@ -25,11 +25,11 @@ public class Trails {
 		types.put("smoke", new Trail("smoke", "", Particle.SMOKE_LARGE, 8, 14));
 		types.put("fire", new Trail("fire", "", Particle.FLAME, 2, 6));
 		types.put("ender", new Trail("ender", "", Particle.PORTAL, 90, 160));
-		types.put("hearts", new Trail("hearts", "", Particle.HEART, 2, 8));
+		//types.put("hearts", new Trail("hearts", "", Particle.HEART, 2, 8));
 		types.put("crit", new Trail("crit", "", Particle.CRIT, 4, 7));
 		types.put("sweat", new Trail("sweat", "", Particle.WATER_SPLASH, 4, 8));
 		types.put("disco", new Trail("disco", "", Particle.SPELL_MOB, 2, 8));
-		types.put("blood", new Trail("blood", "", Particle.REDSTONE, 2, 8));
+		//types.put("blood", new Trail("blood", "", Particle.REDSTONE, 2, 8));
 		types.put("sparks", new Trail("sparks", "", Particle.FIREWORKS_SPARK, 1, 2));
 		types.put("breadcrumb", new Trail("breadcrumb", "", Particle.DRIP_LAVA, 4, 8));
 		types.put("magma", new Trail("magma", "", Particle.LAVA, 4, 12));
@@ -47,6 +47,9 @@ public class Trails {
 	//Let a player change his trail settings
 	public static void select(Player player, String option) {
 
+		if (option == null)
+			option = "";
+
 		if (option.equalsIgnoreCase("off")) {
 			db.savePlayerTrail(player.getUniqueId(), null);
 			player.sendMessage(ChatColor.GREEN + "Your trail has been removed.");
@@ -59,6 +62,7 @@ public class Trails {
 		} else {
 			if (types.containsKey(option)) {
 				db.savePlayerTrail(player.getUniqueId(), option);
+				Players.setTrail(player, get(option));
 				player.sendMessage(ChatColor.GREEN + "Trail enabled!");
 			} else {
 				player.sendMessage(ChatColor.RED + "This trail doesn't exist.");

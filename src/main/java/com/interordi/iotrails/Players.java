@@ -13,18 +13,18 @@ import org.bukkit.potion.PotionEffectType;
 
 public class Players {
 
-	Map< UUID, Trail > activeTrails;
-	IOTrails plugin;
+	private static Map< UUID, Trail > activeTrails;
+	private static IOTrails plugin;
 
 
-	public Players(IOTrails plugin) {
-		this.plugin = plugin;
+	public static void init(IOTrails plugin) {
+		Players.plugin = plugin;
 
 		activeTrails = new HashMap< UUID, Trail >();
 	}
 
 
-	public void add(Player player) {
+	public static void add(Player player) {
 
 		if (!player.hasPermission("iotrails.enable"))
 			return;
@@ -43,12 +43,12 @@ public class Players {
 	}
 
 
-	public void remove(Player player) {
+	public static void remove(Player player) {
 		activeTrails.remove(player.getUniqueId());
 	}
 
 
-	public void move(Player player) {
+	public static void move(Player player) {
 		Trail trail = activeTrails.get(player.getUniqueId());
 
 		if (trail == null ||
@@ -70,6 +70,12 @@ public class Players {
 			random.nextFloat(),
 			0
 		);
+	}
+
+
+	//Set the trail of a player
+	public static void setTrail(Player player, Trail trail) {
+		activeTrails.put(player.getUniqueId(), trail);
 	}
 
 	

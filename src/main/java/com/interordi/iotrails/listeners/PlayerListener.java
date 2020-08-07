@@ -1,6 +1,7 @@
 package com.interordi.iotrails.listeners;
 
 import com.interordi.iotrails.IOTrails;
+import com.interordi.iotrails.Players;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -23,18 +24,18 @@ public class PlayerListener implements Listener {
 
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent event) {
-		plugin.players.add(event.getPlayer());
+		Players.add(event.getPlayer());
 	}
 
 
 	@EventHandler
 	public void onPlayerQuit(PlayerQuitEvent event) {
-		plugin.players.remove(event.getPlayer());
+		Players.remove(event.getPlayer());
 	}
 
 
 	@EventHandler
 	public void onPlayerMove(PlayerMoveEvent event) {
-		plugin.players.move(event.getPlayer());
+		Players.move(event.getPlayer());
 	}
 }

@@ -67,10 +67,10 @@ public class Database {
 			
 			PreparedStatement pstmt = null;
 			
-			if (!trail.isEmpty()) {
+			if (trail != null && !trail.isEmpty()) {
 				//Set the trail
 				pstmt = conn.prepareStatement("" +
-					"REPLACE INTO io__trails (player, trail) " +
+					"REPLACE INTO io__trails (uuid, trail) " +
 					"VALUES (?, ?) "
 				);
 				pstmt.setString(1, uuid.toString());
@@ -79,7 +79,7 @@ public class Database {
 				//Remove the active one, if any
 				pstmt = conn.prepareStatement("" +
 					"DELETE FROM io__trails " +
-					"WHERE player = ? "
+					"WHERE uuid = ? "
 				);
 				pstmt.setString(1, uuid.toString());
 			}
