@@ -7,3 +7,6 @@ commands:
   trail:
     description: View or use a trail
     usage: /trail
+  trails:
+    description: View or use a trail
+    usage: /trails

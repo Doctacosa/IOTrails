@@ -72,7 +72,7 @@ public class IOTrails extends JavaPlugin {
 	//Actually run the entered command
 	public boolean runCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
-		if (cmd.getName().equalsIgnoreCase("trail")) {
+		if (cmd.getName().equalsIgnoreCase("trail") || cmd.getName().equalsIgnoreCase("trails")) {
 
 			if (!sender.hasPermission("iotrails.enable")) {
 				sender.sendMessage(ChatColor.RED + "You are not allowed to use this command.");
