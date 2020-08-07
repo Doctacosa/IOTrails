@@ -60,11 +60,10 @@ public class Players {
 			return;
 
 		Random random = new Random();
-		//TODO: Fix math
 		player.getWorld().spawnParticle(
 			trail.particle,
 			player.getLocation(),
-			random.nextInt((trail.high - trail.low) + trail.low) + 1,
+			random.nextInt(trail.high - trail.low) + trail.low,
 			random.nextFloat(),
 			random.nextFloat(),
 			random.nextFloat(),
