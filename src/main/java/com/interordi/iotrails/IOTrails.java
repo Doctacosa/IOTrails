@@ -7,7 +7,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import net.md_5.bungee.api.ChatColor;
 
-import com.interordi.iotrails.listeners.LoginListener;
+import com.interordi.iotrails.listeners.PlayerListener;
 import com.interordi.iotrails.utilities.Commands;
 import com.interordi.iotrails.utilities.Database;
 import com.interordi.iotrails.utilities.CommandTargets;
@@ -15,8 +15,11 @@ import com.interordi.iotrails.utilities.CommandTargets;
 
 public class IOTrails extends JavaPlugin {
 
-	LoginListener thisLoginListener;
-	Database db = null;
+	public Players players;
+	public Database db = null;
+
+	@SuppressWarnings("unused")
+	private PlayerListener thisPlayerListener;
 
 
 	public void onEnable() {
@@ -32,8 +35,9 @@ public class IOTrails extends JavaPlugin {
 		String database = this.getConfig().getString("mysql.database", "minecraft");
 
 		db = new Database(host, port, user, pass, database);
-		thisLoginListener = new LoginListener(this);
+		thisPlayerListener = new PlayerListener(this);
 		Trails.init(db);
+		players = new Players(this);
 
 		getLogger().info("IOTrails enabled");
 	}

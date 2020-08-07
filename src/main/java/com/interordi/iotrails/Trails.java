@@ -44,6 +44,7 @@ public class Trails {
 	}
 
 
+	//Let a player change his trail settings
 	public static void select(Player player, String option) {
 
 		if (option.equalsIgnoreCase("off")) {
@@ -64,6 +65,12 @@ public class Trails {
 			}
 
 		}
+	}
+
+
+	//Get a trail
+	public static Trail get(String trail) {
+		return types.get(trail);
 	}
 	
 }
