@@ -61,6 +61,7 @@ public class Trails {
 			option = "";
 
 		if (option.equalsIgnoreCase("off")) {
+			Players.remove(player);
 			db.savePlayerTrail(player.getUniqueId(), null);
 			player.sendMessage(ChatColor.GREEN + "Your trail has been removed.");
 		} else if (option.isEmpty()) {
