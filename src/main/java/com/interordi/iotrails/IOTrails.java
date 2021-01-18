@@ -16,6 +16,7 @@ import com.interordi.iotrails.utilities.CommandTargets;
 public class IOTrails extends JavaPlugin {
 
 	public Database db = null;
+	public boolean init = false;
 
 	@SuppressWarnings("unused")
 	private PlayerListener thisPlayerListener;
@@ -34,9 +35,19 @@ public class IOTrails extends JavaPlugin {
 		String database = this.getConfig().getString("mysql.database", "minecraft");
 
 		db = new Database(host, port, user, pass, database);
+		if (!db.init()) {
+			System.err.println("---------------------------------");
+			System.err.println("Failed to initialize the database");
+			System.err.println("Make sure to configure config.yml");
+			System.err.println("---------------------------------");
+			return;
+		}
+
 		thisPlayerListener = new PlayerListener(this);
 		Trails.init(db);
 		Players.init(this);
+
+		init = true;
 
 		getLogger().info("IOTrails enabled");
 	}
@@ -48,6 +59,9 @@ public class IOTrails extends JavaPlugin {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+
+		if (!init)
+			return false;
 		
 		//Get the list of potential targets if a selector was used
 		CommandTargets results = Commands.findTargets(getServer(), sender, cmd, label, args);
@@ -71,6 +85,9 @@ public class IOTrails extends JavaPlugin {
 	
 	//Actually run the entered command
 	public boolean runCommand(CommandSender sender, Command cmd, String label, String[] args) {
+		
+		if (!init)
+			return false;
 		
 		if (cmd.getName().equalsIgnoreCase("trail") || cmd.getName().equalsIgnoreCase("trails")) {
 

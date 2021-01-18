@@ -17,6 +17,38 @@ public class Database {
 	public Database(String server, int port, String username, String password, String base) {
 		database = "jdbc:mysql://" + server + ":" + port + "/" + base + "?user=" + username + "&password=" + password + "&useSSL=false";
 	}
+
+
+	//Initialize the database
+	public boolean init() {
+
+		//Create the required database table
+		//A failure indicates that the database wasn't configured properly
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String query = "";
+		
+		try {
+			conn = DriverManager.getConnection(database);
+			
+			pstmt = conn.prepareStatement("" +
+				"CREATE TABLE IF NOT EXISTS `io__trails` (" +
+				"	`uuid` varchar(36) NOT NULL, " +
+				"	`trail` varchar(20) NOT NULL, " +
+				"	PRIMARY KEY (`uuid`) " +
+				") ENGINE=InnoDB DEFAULT CHARSET=latin1; "
+			);
+			pstmt.executeUpdate();
+		} catch (SQLException ex) {
+			System.out.println("Query: " + query);
+			System.out.println("SQLException: " + ex.getMessage());
+			System.out.println("SQLState: " + ex.getSQLState());
+			System.out.println("VendorError: " + ex.getErrorCode());
+			return false;
+		}
+
+		return true;
+	}
 	
 	
 	//Get a player's active trail, if any
