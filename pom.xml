@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.interordi</groupId>
   <artifactId>IOTrails</artifactId>
-  <version>1.0</version>
+  <version>1.1</version>
   <name>IOTrails</name>
   <description>Allow Minecraft players to have fancy particle trails</description>
   <properties>
