@@ -28,23 +28,23 @@ public class IOTrails extends JavaPlugin {
 		this.saveDefaultConfig();
 
 		//Get the MySQL database information
-		String dbHost = this.getConfig().getString("database.host");
-		int dbPort = this.getConfig().getInt("database.port");
-		String dbUsername = this.getConfig().getString("database.username");
-		String dbPassword = this.getConfig().getString("database.password");
-		String dbBase = this.getConfig().getString("database.base");
+		String dbHost = this.getConfig().getString("database.host", null);
+		int dbPort = this.getConfig().getInt("database.port", 0);
+		String dbUsername = this.getConfig().getString("database.username", null);
+		String dbPassword = this.getConfig().getString("database.password", null);
+		String dbBase = this.getConfig().getString("database.base", null);
 
 		//Old config format
 		if (dbHost == null)
-			dbHost = this.getConfig().getString("mysql.host", "localhost");
+			dbHost = this.getConfig().getString("mysql.host");
 		if (dbPort == 0)
-			dbPort = this.getConfig().getInt("mysql.port", 3306);
+			dbPort = this.getConfig().getInt("mysql.port");
 		if (dbUsername == null)
-			dbUsername = this.getConfig().getString("mysql.user", "root");
+			dbUsername = this.getConfig().getString("mysql.user");
 		if (dbPassword == null)
-			dbPassword = this.getConfig().getString("mysql.pass", "");
+			dbPassword = this.getConfig().getString("mysql.pass");
 		if (dbBase == null)
-			dbBase = this.getConfig().getString("mysql.database", "minecraft");
+			dbBase = this.getConfig().getString("mysql.database");
 
 		db = new Database(dbHost, dbPort, dbUsername, dbPassword, dbBase);
 		if (!db.init()) {
