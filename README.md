@@ -4,10 +4,11 @@ Allow Minecraft players to have fancy particle trails wherever they go. The sett
 
 ## Configuration
 
-`mysql.host`: Database host  
-`mysql.port`: Database port  
-`mysql.user`: Database username  
-`mysql.pass`: Database password  
+`database.host`: Database host  
+`database.port`: Database port  
+`database.base`: Database name  
+`database.username`: Database username  
+`database.password`: Database password  
 `mysql.database`: Database name  
 
 
