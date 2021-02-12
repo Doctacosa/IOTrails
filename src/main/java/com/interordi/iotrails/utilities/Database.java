@@ -14,8 +14,8 @@ public class Database {
 	private String database = "";
 
 
-	public Database(String server, int port, String username, String password, String base) {
-		database = "jdbc:mysql://" + server + ":" + port + "/" + base + "?user=" + username + "&password=" + password + "&useSSL=false";
+	public Database(String dbHost, int dbPort, String dbUsername, String dbPassword, String dbBase) {
+		database = "jdbc:mysql://" + dbHost + ":" + dbPort + "/" + dbBase + "?user=" + dbUsername + "&password=" + dbPassword + "&useSSL=false";
 	}
 
 

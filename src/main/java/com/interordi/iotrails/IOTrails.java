@@ -28,13 +28,25 @@ public class IOTrails extends JavaPlugin {
 		this.saveDefaultConfig();
 
 		//Get the MySQL database information
-		String host = this.getConfig().getString("mysql.host", "localhost");
-		int port = this.getConfig().getInt("mysql.port", 3306);
-		String user = this.getConfig().getString("mysql.user", "root");
-		String pass = this.getConfig().getString("mysql.pass", "");
-		String database = this.getConfig().getString("mysql.database", "minecraft");
+		String dbHost = this.getConfig().getString("database.host");
+		int dbPort = this.getConfig().getInt("database.port");
+		String dbUsername = this.getConfig().getString("database.username");
+		String dbPassword = this.getConfig().getString("database.password");
+		String dbBase = this.getConfig().getString("database.base");
 
-		db = new Database(host, port, user, pass, database);
+		//Old config format
+		if (dbHost == null)
+			dbHost = this.getConfig().getString("mysql.host", "localhost");
+		if (dbPort == 0)
+			dbPort = this.getConfig().getInt("mysql.port", 3306);
+		if (dbUsername == null)
+			dbUsername = this.getConfig().getString("mysql.user", "root");
+		if (dbPassword == null)
+			dbPassword = this.getConfig().getString("mysql.pass", "");
+		if (dbBase == null)
+			dbBase = this.getConfig().getString("mysql.database", "minecraft");
+
+		db = new Database(dbHost, dbPort, dbUsername, dbPassword, dbBase);
 		if (!db.init()) {
 			System.err.println("---------------------------------");
 			System.err.println("Failed to initialize the database");
