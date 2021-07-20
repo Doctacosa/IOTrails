@@ -1,4 +1,7 @@
 # IOTrails
+
+![Logo](https://www.interordi.com/images/plugins/iotrails-96.png)
+
 Allow Minecraft players to have fancy particle trails wherever they go. The settings are stored in a database so that they can be reused across multiple servers.
 
 
