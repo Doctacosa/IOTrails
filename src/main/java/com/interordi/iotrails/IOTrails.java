@@ -1,5 +1,6 @@
 package com.interordi.iotrails;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -48,10 +49,10 @@ public class IOTrails extends JavaPlugin {
 
 		db = new Database(dbHost, dbPort, dbUsername, dbPassword, dbBase);
 		if (!db.init()) {
-			System.err.println("---------------------------------");
-			System.err.println("Failed to initialize the database");
-			System.err.println("Make sure to configure config.yml");
-			System.err.println("---------------------------------");
+			Bukkit.getLogger().severe("---------------------------------");
+			Bukkit.getLogger().severe("Failed to initialize the database");
+			Bukkit.getLogger().severe("Make sure to configure config.yml");
+			Bukkit.getLogger().severe("---------------------------------");
 			return;
 		}
 

@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.UUID;
 
+import org.bukkit.Bukkit;
+
 
 public class Database {
 	
@@ -40,10 +42,10 @@ public class Database {
 			);
 			pstmt.executeUpdate();
 		} catch (SQLException ex) {
-			System.out.println("Query: " + query);
-			System.out.println("SQLException: " + ex.getMessage());
-			System.out.println("SQLState: " + ex.getSQLState());
-			System.out.println("VendorError: " + ex.getErrorCode());
+			Bukkit.getLogger().severe("Query: " + query);
+			Bukkit.getLogger().severe("SQLException: " + ex.getMessage());
+			Bukkit.getLogger().severe("SQLState: " + ex.getSQLState());
+			Bukkit.getLogger().severe("VendorError: " + ex.getErrorCode());
 			return false;
 		}
 
@@ -78,10 +80,10 @@ public class Database {
 			rs.close();
 		} catch (SQLException ex) {
 			// handle any errors
-			System.out.println("Query: " + query);
-			System.out.println("SQLException: " + ex.getMessage());
-			System.out.println("SQLState: " + ex.getSQLState());
-			System.out.println("VendorError: " + ex.getErrorCode());
+			Bukkit.getLogger().severe("Query: " + query);
+			Bukkit.getLogger().severe("SQLException: " + ex.getMessage());
+			Bukkit.getLogger().severe("SQLState: " + ex.getSQLState());
+			Bukkit.getLogger().severe("VendorError: " + ex.getErrorCode());
 		}
 
 		return trail;
@@ -121,10 +123,10 @@ public class Database {
 			
 		} catch (SQLException ex) {
 			// handle any errors
-			System.out.println("Query: " + query);
-			System.out.println("SQLException: " + ex.getMessage());
-			System.out.println("SQLState: " + ex.getSQLState());
-			System.out.println("VendorError: " + ex.getErrorCode());
+			Bukkit.getLogger().severe("Query: " + query);
+			Bukkit.getLogger().severe("SQLException: " + ex.getMessage());
+			Bukkit.getLogger().severe("SQLState: " + ex.getSQLState());
+			Bukkit.getLogger().severe("VendorError: " + ex.getErrorCode());
 		}
 	}
 }
