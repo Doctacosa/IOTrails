@@ -22,27 +22,27 @@ public class Trails {
 
 		Trails.db = db;
 
-		types.put("smoke", new Trail("smoke", "", Particle.SMOKE_LARGE, 8, 14));
+		types.put("smoke", new Trail("smoke", "", Particle.LARGE_SMOKE, 8, 14));
 		types.put("fire", new Trail("fire", "", Particle.FLAME, 2, 6));
 		types.put("ender", new Trail("ender", "", Particle.PORTAL, 90, 160));
 		//types.put("hearts", new Trail("hearts", "", Particle.HEART, 2, 8));
 		types.put("crit", new Trail("crit", "", Particle.CRIT, 4, 7));
-		types.put("sweat", new Trail("sweat", "", Particle.WATER_SPLASH, 4, 8));
-		types.put("swirls", new Trail("swirls", "", Particle.SPELL_MOB, 2, 8));
+		types.put("sweat", new Trail("sweat", "", Particle.SPLASH, 4, 8));
+		types.put("swirls", new Trail("swirls", "", Particle.EFFECT, 2, 8));
 		//types.put("blood", new Trail("blood", "", Particle.REDSTONE, 2, 8));
-		types.put("sparks", new Trail("sparks", "", Particle.FIREWORKS_SPARK, 1, 2));
-		types.put("breadcrumb", new Trail("breadcrumb", "", Particle.DRIP_LAVA, 4, 8));
+		types.put("sparks", new Trail("sparks", "", Particle.FIREWORK, 1, 2));
+		types.put("breadcrumb", new Trail("breadcrumb", "", Particle.DRIPPING_LAVA, 4, 8));
 		types.put("magma", new Trail("magma", "", Particle.LAVA, 4, 12));
-		types.put("letters", new Trail("letters", "", Particle.ENCHANTMENT_TABLE, 9, 16));
-		types.put("happy", new Trail("happy", "", Particle.VILLAGER_HAPPY, 4, 12));
+		types.put("letters", new Trail("letters", "", Particle.ENCHANT, 9, 16));
+		types.put("happy", new Trail("happy", "", Particle.HAPPY_VILLAGER, 4, 12));
 		//types.put("magic", new Trail("magic", "", Particle.CRIT_MAGIC, 7, 10));
-		types.put("magic", new Trail("magic", "", Particle.SPELL_WITCH, 7, 10));
+		types.put("magic", new Trail("magic", "", Particle.WITCH, 7, 10));
 		types.put("music", new Trail("music", "", Particle.NOTE, 1, 2));
-		types.put("anger", new Trail("anger", "", Particle.VILLAGER_ANGRY, 1, 2));
+		types.put("anger", new Trail("anger", "", Particle.ANGRY_VILLAGER, 1, 2));
 		types.put("clouds", new Trail("clouds", "", Particle.CLOUD, 1, 2));
 		
-		types.put("slime", new Trail("slime", "", Particle.SLIME, 5, 10));
-		types.put("snow", new Trail("snow", "", Particle.SNOWBALL, 3, 6));
+		types.put("slime", new Trail("slime", "", Particle.ITEM_SLIME, 5, 10));
+		types.put("snow", new Trail("snow", "", Particle.ITEM_SNOWBALL, 3, 6));
 		types.put("glow", new Trail("glow", "", Particle.END_ROD, 1, 3));
 		types.put("ash", new Trail("ash", "", Particle.ASH, 20, 30));
 		types.put("smoke", new Trail("smoke", "", Particle.CAMPFIRE_COSY_SMOKE, 1, 2));
@@ -50,7 +50,6 @@ public class Trails {
 		types.put("spores2", new Trail("spores2", "", Particle.WARPED_SPORE, 1, 3));
 		types.put("soul", new Trail("soul", "", Particle.SOUL, 1, 3));
 		types.put("soul_flame", new Trail("soul_flame", "", Particle.SOUL_FIRE_FLAME, 2, 4));
-
 	}
 
 
