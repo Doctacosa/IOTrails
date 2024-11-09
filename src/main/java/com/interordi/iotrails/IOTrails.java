@@ -120,6 +120,22 @@ public class IOTrails extends JavaPlugin {
 			String option = null;
 			if (args.length > 0)
 				option = args[0];
+
+			//Define a custom trail
+			if (sender.hasPermission("iotrails.custom") &&
+				args.length > 2 &&
+				args[0].equalsIgnoreCase("custom")) {
+
+				int min = 2;
+				int max = 4;
+				String particle = args[1];
+				if (args.length > 3) {
+					min = Integer.parseInt(args[2]);
+					max = Integer.parseInt(args[3]);
+				}
+
+				Trails.createCustom(particle, min, max);
+			}
 			
 			Trails.select(player, option);
 

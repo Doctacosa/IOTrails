@@ -95,6 +95,17 @@ public class Trails {
 	}
 
 
+	//Add the definition of a custom trail
+	//NOTE: Shared amongst all trail users
+	public static void createCustom(String particle, int min, int max) {
+		try {
+			types.put("custom", new Trail("custom", "", Particle.valueOf(particle.toUpperCase()), min, max));
+		} catch (IllegalArgumentException e) {
+			System.out.println("Particle " + particle + " doesn't exist!");
+		}
+	}
+
+
 	//Get a trail
 	public static Trail get(String trail) {
 		return types.get(trail);
