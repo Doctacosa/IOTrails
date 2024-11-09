@@ -1,6 +1,7 @@
 package com.interordi.iotrails;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,34 +23,45 @@ public class Trails {
 
 		Trails.db = db;
 
-		types.put("smoke", new Trail("smoke", "", Particle.LARGE_SMOKE, 8, 14));
-		types.put("fire", new Trail("fire", "", Particle.FLAME, 2, 6));
+		types.put("big_smoke", new Trail("smoke", "", Particle.LARGE_SMOKE, 8, 14));
+		types.put("flame", new Trail("flame", "", Particle.FLAME, 2, 6));
 		types.put("ender", new Trail("ender", "", Particle.PORTAL, 90, 160));
-		//types.put("hearts", new Trail("hearts", "", Particle.HEART, 2, 8));
 		types.put("crit", new Trail("crit", "", Particle.CRIT, 4, 7));
 		types.put("sweat", new Trail("sweat", "", Particle.SPLASH, 4, 8));
 		types.put("swirls", new Trail("swirls", "", Particle.EFFECT, 2, 8));
-		//types.put("blood", new Trail("blood", "", Particle.REDSTONE, 2, 8));
-		types.put("sparks", new Trail("sparks", "", Particle.FIREWORK, 1, 2));
+		types.put("sparks", new Trail("sparks", "", Particle.FIREWORK, 2, 4));
 		types.put("breadcrumb", new Trail("breadcrumb", "", Particle.DRIPPING_LAVA, 4, 8));
-		types.put("magma", new Trail("magma", "", Particle.LAVA, 4, 12));
+		types.put("magma", new Trail("magma", "", Particle.LAVA, 4, 8));
 		types.put("letters", new Trail("letters", "", Particle.ENCHANT, 9, 16));
 		types.put("happy", new Trail("happy", "", Particle.HAPPY_VILLAGER, 4, 12));
-		//types.put("magic", new Trail("magic", "", Particle.CRIT_MAGIC, 7, 10));
 		types.put("magic", new Trail("magic", "", Particle.WITCH, 7, 10));
 		types.put("music", new Trail("music", "", Particle.NOTE, 1, 2));
 		types.put("anger", new Trail("anger", "", Particle.ANGRY_VILLAGER, 1, 2));
 		types.put("clouds", new Trail("clouds", "", Particle.CLOUD, 1, 2));
-		
+
 		types.put("slime", new Trail("slime", "", Particle.ITEM_SLIME, 5, 10));
-		types.put("snow", new Trail("snow", "", Particle.ITEM_SNOWBALL, 3, 6));
+		types.put("snow", new Trail("snow", "", Particle.SNOWFLAKE, 4, 8));
 		types.put("glow", new Trail("glow", "", Particle.END_ROD, 1, 3));
 		types.put("ash", new Trail("ash", "", Particle.ASH, 20, 30));
 		types.put("smoke", new Trail("smoke", "", Particle.CAMPFIRE_COSY_SMOKE, 1, 2));
-		types.put("spores1", new Trail("spores1", "", Particle.CRIMSON_SPORE, 2, 6));
-		types.put("spores2", new Trail("spores2", "", Particle.WARPED_SPORE, 1, 3));
 		types.put("soul", new Trail("soul", "", Particle.SOUL, 1, 3));
 		types.put("soul_flame", new Trail("soul_flame", "", Particle.SOUL_FIRE_FLAME, 2, 4));
+		
+		types.put("cherry", new Trail("cherry", "", Particle.CHERRY_LEAVES, 3, 6));
+		types.put("no_love", new Trail("no_love", "", Particle.DAMAGE_INDICATOR, 2, 4));
+		types.put("love", new Trail("love", "", Particle.HEART, 2, 4));
+		types.put("dust", new Trail("dust", "", Particle.DUST_PLUME, 2, 4));
+		types.put("spots", new Trail("spots", "", Particle.OMINOUS_SPAWNING, 10, 20));
+		types.put("death", new Trail("death", "", Particle.RAID_OMEN, 2, 4));
+
+		//Mixes
+		types.put("13th", new Trail("13th", "", List.of(Particle.GLOW, Particle.WITCH), 3, 6));
+		types.put("omen", new Trail("omen", "", List.of(Particle.RAID_OMEN, Particle.TRIAL_OMEN), 2, 4));
+		types.put("stars", new Trail("stars", "", List.of(Particle.WAX_ON, Particle.WAX_OFF, Particle.SCRAPE), 3, 6));
+		types.put("ups", new Trail("stars", "", List.of(Particle.TRIAL_SPAWNER_DETECTION, Particle.TRIAL_SPAWNER_DETECTION_OMINOUS), 3, 6));
+		types.put("flames", new Trail("flames", "", List.of(Particle.FLAME, Particle.SOUL_FIRE_FLAME), 2, 6));
+		types.put("spores", new Trail("spores", "", List.of(Particle.WARPED_SPORE, Particle.CRIMSON_SPORE), 2, 6));
+
 	}
 
 
@@ -68,6 +80,7 @@ public class Trails {
 			List< String > trails = new ArrayList< String >();
 			for (Trail trail : types.values())
 				trails.add(trail.name);
+			Collections.sort(trails);
 			player.sendMessage(ChatColor.WHITE + String.join(", ", trails));
 		} else {
 			if (types.containsKey(option)) {
