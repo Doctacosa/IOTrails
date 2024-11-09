@@ -41,7 +41,7 @@ public class Trails {
 
 		types.put("slime", new Trail("slime", "", Particle.ITEM_SLIME, 5, 10));
 		types.put("snow", new Trail("snow", "", Particle.SNOWFLAKE, 4, 8));
-		types.put("glow", new Trail("glow", "", Particle.END_ROD, 1, 3));
+		types.put("flash", new Trail("flash", "", Particle.END_ROD, 1, 3));
 		types.put("ash", new Trail("ash", "", Particle.ASH, 20, 30));
 		types.put("smoke", new Trail("smoke", "", Particle.CAMPFIRE_COSY_SMOKE, 1, 2));
 		types.put("soul", new Trail("soul", "", Particle.SOUL, 1, 3));
@@ -55,7 +55,7 @@ public class Trails {
 		types.put("death", new Trail("death", "", Particle.RAID_OMEN, 2, 4));
 
 		//Mixes
-		types.put("13th", new Trail("13th", "", List.of(Particle.GLOW, Particle.WITCH), 3, 6));
+		types.put("glow", new Trail("glow", "", List.of(Particle.GLOW, Particle.WITCH), 3, 6));
 		types.put("omen", new Trail("omen", "", List.of(Particle.RAID_OMEN, Particle.TRIAL_OMEN), 2, 4));
 		types.put("stars", new Trail("stars", "", List.of(Particle.WAX_ON, Particle.WAX_OFF, Particle.SCRAPE), 3, 6));
 		types.put("ups", new Trail("stars", "", List.of(Particle.TRIAL_SPAWNER_DETECTION, Particle.TRIAL_SPAWNER_DETECTION_OMINOUS), 3, 6));
