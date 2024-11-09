@@ -7,6 +7,7 @@ import java.util.UUID;
 
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
+import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffectType;
 
@@ -60,8 +61,18 @@ public class Players {
 			return;
 
 		Random random = new Random();
+		Particle particle;
+		if (trail.particle != null) {
+			//Fixed particle
+			particle = trail.particle;
+		} else {
+			//Pick a random one from the set
+			int pos = random.nextInt(0, trail.mix.size());
+			particle = trail.mix.get(pos);
+		}
+
 		player.getWorld().spawnParticle(
-			trail.particle,
+			particle,
 			player.getLocation(),
 			random.nextInt(trail.high - trail.low) + trail.low,
 			random.nextFloat(),
