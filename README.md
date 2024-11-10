@@ -8,7 +8,7 @@ Server owners, offer a cosmetic perk to your most valuable players, or let every
 
 This plugin allows Minecraft players to have fancy particle trails wherever they go. The activated trails are stored in a database so that they can be active across multiple servers on a network.
 
-There are currently 24 different trails available, including new particles introduced in 1.16 - the Nether Update!
+There are currently 34 different trails available, including new particles introduced up to 1.21!
 
 
 ![Trail preview](https://gallery.creeperslab.net/screenshots/plugins/trail.png)
