@@ -23,7 +23,7 @@ public class Trails {
 
 		Trails.db = db;
 
-		types.put("big_smoke", new Trail("smoke", "", Particle.LARGE_SMOKE, 8, 14));
+		types.put("big_smoke", new Trail("big_smoke", "", Particle.LARGE_SMOKE, 8, 14));
 		types.put("flame", new Trail("flame", "", Particle.FLAME, 2, 6));
 		types.put("ender", new Trail("ender", "", Particle.PORTAL, 90, 160));
 		types.put("crit", new Trail("crit", "", Particle.CRIT, 4, 7));
@@ -58,7 +58,7 @@ public class Trails {
 		types.put("glow", new Trail("glow", "", List.of(Particle.GLOW, Particle.WITCH), 3, 6));
 		types.put("omen", new Trail("omen", "", List.of(Particle.RAID_OMEN, Particle.TRIAL_OMEN), 2, 4));
 		types.put("stars", new Trail("stars", "", List.of(Particle.WAX_ON, Particle.WAX_OFF, Particle.SCRAPE), 3, 6));
-		types.put("ups", new Trail("stars", "", List.of(Particle.TRIAL_SPAWNER_DETECTION, Particle.TRIAL_SPAWNER_DETECTION_OMINOUS), 3, 6));
+		types.put("ups", new Trail("ups", "", List.of(Particle.TRIAL_SPAWNER_DETECTION, Particle.TRIAL_SPAWNER_DETECTION_OMINOUS), 3, 6));
 		types.put("flames", new Trail("flames", "", List.of(Particle.FLAME, Particle.SOUL_FIRE_FLAME), 2, 6));
 		types.put("spores", new Trail("spores", "", List.of(Particle.WARPED_SPORE, Particle.CRIMSON_SPORE), 2, 6));
 
