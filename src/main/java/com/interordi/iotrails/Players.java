@@ -67,7 +67,7 @@ public class Players {
 			particle = trail.particle;
 		} else {
 			//Pick a random one from the set
-			int pos = random.nextInt(0, trail.mix.size());
+			int pos = random.nextInt(trail.mix.size());
 			particle = trail.mix.get(pos);
 		}
 
