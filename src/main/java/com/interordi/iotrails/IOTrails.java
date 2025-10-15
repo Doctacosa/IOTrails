@@ -1,5 +1,6 @@
 package com.interordi.iotrails;
 
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -61,6 +62,10 @@ public class IOTrails extends JavaPlugin {
 		Players.init(this);
 
 		init = true;
+
+		//Enable metrics
+		@SuppressWarnings("unused")
+		Metrics metrics = new Metrics(this, 27603);
 
 		getLogger().info("IOTrails enabled");
 	}
