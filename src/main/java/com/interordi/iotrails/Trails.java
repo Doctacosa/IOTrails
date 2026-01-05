@@ -77,40 +77,40 @@ public class Trails {
 			player.sendMessage(ChatColor.GREEN + "Your trail has been removed.");
 		} else if (option.isEmpty()) {
 
-            List< String > trails = new ArrayList< String >();
+			List< String > trails = new ArrayList< String >();
 
-            for (Trail trail : types.values()) {
-                if (playerHasPermissionForTrail(player, trail)) {
-                    trails.add(trail.name);
-                }
-            }
+			for (Trail trail : types.values()) {
+				if (playerHasPermissionForTrail(player, trail)) {
+					trails.add(trail.name);
+				}
+			}
 
-            StringBuilder trailsMenu = new StringBuilder();
+			StringBuilder trailsMenu = new StringBuilder();
 
-            if (trails.isEmpty()) {
-                trailsMenu.append(ChatColor.RED);
-                trailsMenu.append("You do not have permission to use any trails.");
-            } else {
-                trailsMenu.append(ChatColor.GREEN);
-                trailsMenu.append("You have ");
-                trailsMenu.append(trails.size());
-                trailsMenu.append(" trails available\n");
+			if (trails.isEmpty()) {
+				trailsMenu.append(ChatColor.RED);
+				trailsMenu.append("You do not have permission to use any trails.");
+			} else {
+				trailsMenu.append(ChatColor.GREEN);
+				trailsMenu.append("You have ");
+				trailsMenu.append(trails.size());
+				trailsMenu.append(" trails available\n");
 
-                trailsMenu.append(ChatColor.LIGHT_PURPLE);
-                trailsMenu.append("Use /trail NAME to enable, /trail OFF to disable\n");
-                Collections.sort(trails);
-                trailsMenu.append(ChatColor.WHITE);
-                trailsMenu.append(String.join(", ", trails));
-            }
+				trailsMenu.append(ChatColor.LIGHT_PURPLE);
+				trailsMenu.append("Use /trail NAME to enable, /trail OFF to disable\n");
+				Collections.sort(trails);
+				trailsMenu.append(ChatColor.WHITE);
+				trailsMenu.append(String.join(", ", trails));
+			}
 
-            player.sendMessage(trailsMenu.toString());
+			player.sendMessage(trailsMenu.toString());
 
 		} else {
-            if (types.containsKey(option)) {
-                if (!playerHasPermissionForTrail(player, get(option))) {
-                    player.sendMessage(ChatColor.RED + "You do not have permission to use this trail.");
-                    return;
-                }
+			if (types.containsKey(option)) {
+				if (!playerHasPermissionForTrail(player, get(option))) {
+					player.sendMessage(ChatColor.RED + "You do not have permission to use this trail.");
+					return;
+				}
 				db.savePlayerTrail(player.getUniqueId(), option);
 				Players.setTrail(player, get(option));
 				player.sendMessage(ChatColor.GREEN + "Trail enabled!");
@@ -120,11 +120,11 @@ public class Trails {
 		}
 	}
 
-    private static boolean playerHasPermissionForTrail(Player player, Trail trail) {
-        return player.isOp() ||
-                player.hasPermission("iotrails.trail.*") ||
-                player.hasPermission("iotrails.trail." + trail.id);
-    }
+	private static boolean playerHasPermissionForTrail(Player player, Trail trail) {
+		return player.isOp() ||
+				player.hasPermission("iotrails.trail.*") ||
+				player.hasPermission("iotrails.trail." + trail.id);
+	}
 
 	//Add the definition of a custom trail
 	//NOTE: Shared amongst all trail users
