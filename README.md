@@ -41,3 +41,5 @@ There are currently 34 different trails available, including new particles intro
 ## Permissions
 
 `iotrails.enable`: Access to the `/trail` command.
+`iotrails.trail.*`: Give access to all trains.
+`iotrails.trail.<id>`: Give access to a specific trail.
